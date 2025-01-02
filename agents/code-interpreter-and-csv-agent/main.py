@@ -1,10 +1,10 @@
+from langchain import hub
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import Tool
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain_experimental.tools import PythonREPLTool
 from langchain_openai import ChatOpenAI
-from langchain import hub
 
 
 class AgentManager:
@@ -60,7 +60,11 @@ def main():
     agent_manager = AgentManager()
 
     # agent_manager.router_agent.invoke({"input": "in episode_info.csv file which season has the most episodes?"})
-    agent_manager.router_agent.invoke({"input": "Generate and save in current working directory 15 qrcodes that point to `https://github.com/fawad71/ai-demo-app`"})
+    agent_manager.router_agent.invoke(
+        {
+            "input": "Generate and save in current working directory 15 qrcodes that point to `https://github.com/fawad71/ai-demo-app`"
+        }
+    )
 
 
 if __name__ == "__main__":

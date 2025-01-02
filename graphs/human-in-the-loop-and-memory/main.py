@@ -1,7 +1,9 @@
 import sqlite3
-from langgraph.checkpoint.sqlite import SqliteSaver
 from typing import TypedDict
-from langgraph.graph import StateGraph, START, END
+
+from langgraph.checkpoint.sqlite import SqliteSaver
+from langgraph.graph import END, START, StateGraph
+
 
 class State(TypedDict):
     input: str
@@ -33,7 +35,9 @@ conn = sqlite3.connect("checkpoints.sqlite", check_same_thread=False)
 memory = SqliteSaver(conn)
 graph = builder.compile(checkpointer=memory, interrupt_before=["human_feedback"])
 
-graph.get_graph().draw_mermaid_png(output_file_path="graphs/human-in-the-loop-and-memory/human-in-the-loop-and-memory.png") 
+graph.get_graph().draw_mermaid_png(
+    output_file_path="graphs/human-in-the-loop-and-memory/human-in-the-loop-and-memory_graph.png"
+)
 
 
 if __name__ == "__main__":

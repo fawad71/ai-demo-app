@@ -1,9 +1,8 @@
 import operator
 from typing import Annotated, Any, Sequence
 
+from langgraph.graph import END, START, StateGraph
 from typing_extensions import TypedDict
-
-from langgraph.graph import StateGraph, START, END
 
 
 class State(TypedDict):
@@ -54,6 +53,4 @@ graph.get_graph().draw_mermaid_png(output_file_path="conditional_async.png")
 
 if __name__ == "__main__":
     print("Helo Async Graph")
-    graph.invoke(
-        {"aggregate": [], "which": ""}, {"configurable": {"thread_id": "foo"}}
-    )
+    graph.invoke({"aggregate": [], "which": ""}, {"configurable": {"thread_id": "foo"}})

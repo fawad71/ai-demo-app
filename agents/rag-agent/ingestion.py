@@ -1,7 +1,7 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_chroma import Chroma
 from langchain_community.document_loaders import TextLoader
 from langchain_openai import OpenAIEmbeddings
-from langchain_chroma import Chroma
 
 if __name__ == "__main__":
     print("Ingesting Data")
@@ -10,7 +10,9 @@ if __name__ == "__main__":
 
     print("splitting data")
 
-    text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(chunk_size=1000, chunk_overlap=200)
+    text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+        chunk_size=1000, chunk_overlap=200
+    )
     chunks = text_splitter.split_documents(data)
 
     print(f"Loaded {len(chunks)} chunks")
@@ -23,7 +25,7 @@ if __name__ == "__main__":
         documents=chunks,
         embedding=embeddings,
         collection_name="medium-blog",
-        persist_directory="./chroma_db"
+        persist_directory="./chroma_db",
     )
 
     print("Data ingested successfully")
