@@ -1,11 +1,11 @@
 from langchain import hub
 from langchain.agents import AgentExecutor, create_tool_calling_agent
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import Tool
 from langchain_experimental.agents.agent_toolkits import create_csv_agent
 from langchain_experimental.tools import PythonREPLTool
 from langchain_openai import ChatOpenAI
 
+FILE_NAME = "local_data.csv"
 
 class AgentManager:
     def __init__(self):
@@ -27,8 +27,8 @@ class AgentManager:
 
     def _setup_csv_agent(self):
         return create_csv_agent(
-            llm=self.llm4oMini,
-            path="agents/code-interpreter-and-csv-agent/episode_info.csv",
+            llm=self.llm4o,
+            path=f"agents/code-interpreter-and-csv-agent/csv_files/{FILE_NAME}",
             verbose=True,
             allow_dangerous_code=True,
         )
@@ -43,7 +43,7 @@ class AgentManager:
             Tool(
                 name="CSV_Agent",
                 func=self.csv_agent.invoke,
-                description="Useful when you need to answer question over episode_info.csv file, takes an input the entire question and returns the answer after running pandas calculations",
+                description=f"Useful when you need to answer question over {FILE_NAME} file, takes an input the entire question and returns the answer after running pandas calculations",
             ),
         ]
 
@@ -58,13 +58,9 @@ class AgentManager:
 def main():
     print("Start...")
     agent_manager = AgentManager()
-
-    # agent_manager.router_agent.invoke({"input": "in episode_info.csv file which season has the most episodes?"})
-    agent_manager.router_agent.invoke(
-        {
-            "input": "Generate and save in current working directory 15 qrcodes that point to `https://github.com/fawad71/ai-demo-app`"
-        }
-    )
+    user_input = input("Enter your prompt: ")
+    
+    agent_manager.router_agent.invoke({"input": user_input})
 
 
 if __name__ == "__main__":

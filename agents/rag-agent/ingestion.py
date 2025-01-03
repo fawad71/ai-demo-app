@@ -5,19 +5,19 @@ from langchain_openai import OpenAIEmbeddings
 
 if __name__ == "__main__":
     print("Ingesting Data")
-    loader = TextLoader("agents/rag-agent/docs/mediumblog1.txt")
+    loader = TextLoader("agents/rag-agent/docs/vector-db-blog.txt")
     data = loader.load()
 
     print("splitting data")
 
-    text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+    text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000, chunk_overlap=200
     )
     chunks = text_splitter.split_documents(data)
 
     print(f"Loaded {len(chunks)} chunks")
 
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small", timeout=60)
 
     print("embedding data")
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         documents=chunks,
         embedding=embeddings,
         collection_name="medium-blog",
-        persist_directory="./chroma_db",
+        persist_directory="./chroma_db_blog",
     )
 
     print("Data ingested successfully")

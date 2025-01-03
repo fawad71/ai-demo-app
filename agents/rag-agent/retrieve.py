@@ -9,12 +9,12 @@ def retrieve(query):
     print("Retrieving data...")
 
     embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
-    llm = ChatOpenAI(model="gpt-4o-mini")
+    llm = ChatOpenAI(model="gpt-4o")
 
     vectorstore = Chroma(
         collection_name="medium-blog",
         embedding_function=embeddings,
-        persist_directory="./chroma_db",
+        persist_directory="./chroma_db_blog",
     )
 
     retrieval_qa_chat_prompt = hub.pull("common-rag")
