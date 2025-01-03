@@ -43,15 +43,9 @@ graph.get_graph().draw_mermaid_png(
 
 
 if __name__ == "__main__":
+    user_input = input("Enter your tweet: ")
     input = HumanMessage(
-        content="""
-                         make this tweet better:
-                         @langchain_ai
-                         - newly tool calling feature is seriusly underrated. After a long time of using it, I can say it's a game changer.
-                         - I'm so excited to see what's next.
-                         - it's so easy to use and it's so powerful.
-                         - made a video covering their newes blog post.
-                         """
+        content=user_input
     )
 
     res = graph.invoke([input])

@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "ai-demo-app"
+name = "graphs"
 version = "0.1.0"
 description = ""
 authors = ["Fawad"]
 readme = "README.md"
-package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
