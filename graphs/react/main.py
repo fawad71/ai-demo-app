@@ -1,5 +1,5 @@
 from langchain_core.agents import AgentFinish
-from langgraph.graph import END, StateGraph
+from langgraph.graph import END, StateGraph, START
 
 from graphs.react.nodes import run_agent_reasoning_engine, execute_tool
 from graphs.react.state import AgentState
@@ -22,14 +22,16 @@ flow.add_conditional_edges(AGENT_REASON, should_continue)
 
 flow.add_edge(ACT, AGENT_REASON)
 
-flow.set_entry_point(AGENT_REASON)
+flow.add_edge(START, AGENT_REASON)
 
 graph = flow.compile()
 graph.get_graph().draw_mermaid_png(output_file_path="graphs/react/react_graph.png")
 
+user_input = input("Enter your query: ")
+
 res = graph.invoke(
     input={
-        "input": "what is the weather in SF? write it and then Triple it."
+        "input": user_input
     }
 )
 

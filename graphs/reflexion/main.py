@@ -1,9 +1,9 @@
 from typing import List
 
-from chains import first_responder, revisor
+from graphs.reflexion.chains import first_responder, revisor
 from langchain_core.messages import BaseMessage, ToolMessage
 from langgraph.graph import END, MessageGraph
-from tool_executor import tool_node
+from graphs.reflexion.tool_executor import tool_node
 
 MAX_ITERATIONS = 2
 

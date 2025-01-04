@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     print(f"Loaded {len(chunks)} chunks")
 
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small", timeout=60)
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
     print("embedding data")
 
