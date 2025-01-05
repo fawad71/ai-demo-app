@@ -2,7 +2,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_community.utilities.tavily_search import TavilySearchAPIWrapper
 from langchain_core.tools import StructuredTool
 from langgraph.prebuilt import ToolNode
-from schemas import AnswerQuestion, ReviseAnswer
+from graphs.reflexion.schemas import AnswerQuestion, ReviseAnswer
 
 search = TavilySearchAPIWrapper()
 tavily_tool = TavilySearchResults(api_wrapper=search, max_results=5)

@@ -2,7 +2,7 @@ import datetime
 
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
-from schemas import AnswerQuestion, ReviseAnswer
+from graphs.reflexion.schemas import AnswerQuestion, ReviseAnswer
 
 llm = ChatOpenAI(model="gpt-4o", temperature=0)
 
