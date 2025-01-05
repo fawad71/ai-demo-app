@@ -31,6 +31,7 @@ tavily-python = "^0.5.0"
 langchain-chroma = "^0.1.4"
 langgraph-checkpoint-sqlite = "^2.0.1"
 langgraph-cli = "^0.1.65"
+copilotkit = "^0.1.30"
 
 
 [build-system]

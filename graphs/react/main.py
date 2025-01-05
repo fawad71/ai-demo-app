@@ -26,15 +26,3 @@ flow.add_edge(START, AGENT_REASON)
 
 graph = flow.compile()
 graph.get_graph().draw_mermaid_png(output_file_path="graphs/react/react_graph.png")
-
-user_input = input("Enter your query: ")
-
-res = graph.invoke(
-    input={
-        "input": user_input
-    }
-)
-
-print(
-    res["agent_outcome"].return_values["output"]
-)

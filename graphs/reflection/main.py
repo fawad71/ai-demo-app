@@ -10,10 +10,12 @@ GENERATE = "generate"
 
 
 def generation_node(state: Sequence[BaseMessage]):
+    print(f"state: {state}")
     return generation_chain.invoke({"messages": state})
 
 
 def reflection_node(messages: Sequence[BaseMessage]):
+    print(f"messages: {messages}")
     res = reflection_chain.invoke({"messages": messages})
     return [HumanMessage(content=res.content)]
 
@@ -37,16 +39,6 @@ builder.add_edge(REFLECT, GENERATE)
 
 graph = builder.compile()
 
-graph.get_graph().draw_mermaid_png(
-    output_file_path="graphs/reflection/reflection_graph.png"
-)
-
-
-if __name__ == "__main__":
-    user_input = input("Enter your tweet: ")
-    input = HumanMessage(
-        content=user_input
-    )
-
-    res = graph.invoke([input])
-    print(res)
+# graph.get_graph().draw_mermaid_png(
+#     output_file_path="graphs/reflection/reflection_graph.png"
+# )
