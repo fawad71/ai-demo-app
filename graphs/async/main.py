@@ -36,9 +36,10 @@ builder.add_edge(["b2", "c"], "d")
 builder.add_edge("d", END)
 
 graph = builder.compile()
-graph.get_graph().draw_mermaid_png(
-    output_file_path="graphs/async/async_graph.png"
-)
+
+# graph.get_graph().draw_mermaid_png(
+#     output_file_path="graphs/async/async_graph.png"
+# )
 
 if __name__ == "__main__":
     print("Helo Async Graph")

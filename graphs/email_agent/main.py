@@ -79,4 +79,4 @@ workflow.add_edge("send_email_node", END)
 memory = MemorySaver()
 graph = workflow.compile(checkpointer=memory, interrupt_after=["email_node"])
 
-graph.get_graph().draw_mermaid_png(output_file_path="graphs/email_agent/email_agent_graph.png")
+# graph.get_graph().draw_mermaid_png(output_file_path="graphs/email_agent/email_agent_graph.png")
