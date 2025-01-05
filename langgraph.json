@@ -8,10 +8,11 @@
     "humanInTheLoop": "./graphs/human-in-the-loop-and-memory/main.py:graph",
     "async": "./graphs/async/main.py:graph",
     "conditionalAsync": "./graphs/conditional_async/main.py:graph",
-    "HotelCustomerService": "./graphs/hotel_customer_service/main.py:graph"
+    "HotelCustomerService": "./graphs/hotel_customer_service/main.py:graph",
+    "email_agent": "./graphs/email_agent/main.py:graph"
   },
   "env": ".env",
-  "python_version": "3.11",
+  "python_version": "3.12",
   "dependencies": [
     "."
   ]
