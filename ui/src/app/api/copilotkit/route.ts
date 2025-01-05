@@ -16,8 +16,8 @@ import {
         langsmithApiKey: process.env.LANGSMITH_API_KEY || "",
         agents: [
           {
-            name: 'HotelCustomerService', 
-            description: 'Hotel Customer Service agent'
+            name: 'email_agent', 
+            description: 'Email agent'
           }
         ]
       }),
