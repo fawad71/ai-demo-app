@@ -31,9 +31,9 @@ graph = builder.compile()
 #     output_file_path="graphs/reflexion/reflexion_graph.png"
 # )
 
-res = graph.invoke(
-    "what are the benefits of drinking water?"
-)
+if __name__ == "__main__":
+    user_input = input("Enter your query: ")
+    res = graph.invoke(user_input)
 
-print(res[-1].tool_calls[0]["args"]["answer"])
-print(res)
+    print(res[-1].tool_calls[0]["args"]["answer"])
+    print(res)

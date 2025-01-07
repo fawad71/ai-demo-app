@@ -6,7 +6,7 @@
     "reflexion": "./graphs/reflection/main.py:graph",
     "react": "./graphs/react/main.py:graph",
     "HITL_memory": "./graphs/HITL_memory/main.py:graph",
-    "async_graph": "./graphs/async/main.py:graph",
+    "async_graph": "./graphs/async_graph/main.py:graph",
     "conditional_async": "./graphs/conditional_async/main.py:graph",
     "email_agent": "./graphs/email_agent/main.py:graph"
   },

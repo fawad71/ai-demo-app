@@ -42,3 +42,7 @@ graph = builder.compile()
 # graph.get_graph().draw_mermaid_png(
 #     output_file_path="graphs/reflection/reflection_graph.png"
 # )
+
+if __name__ == "__main__":
+    user_input = input("Enter your tweet: ")
+    graph.invoke(user_input)

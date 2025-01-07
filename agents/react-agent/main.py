@@ -34,7 +34,7 @@ def celsius_to_fahrenheit(celsius: float) -> float:
 if __name__ == "__main__":
     print("Start...")
 
-    llm = ChatOpenAI(model="gpt-4o-mini")
+    llm = ChatOpenAI(model="gpt-4o")
 
     tools = [get_text_length, calculate_math, capitalize_text, celsius_to_fahrenheit]
 
