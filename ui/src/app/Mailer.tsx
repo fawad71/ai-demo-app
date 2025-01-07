@@ -56,10 +56,10 @@ export function Mailer() {
       data-test-id="mailer-container"
     >
       <div className="text-2xl mb-4" data-test-id="mailer-title">
-        Email Q&A example
+        Email Assistant
       </div>
       <div className="mb-8" data-test-id="mailer-example">
-        e.g. write an email to the CEO of OpenAI asking for a meeting
+        e.g. write and send emails
       </div>
 
       <div className="w-full max-w-2xl">
