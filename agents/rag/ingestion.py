@@ -5,7 +5,7 @@ from langchain_openai import OpenAIEmbeddings
 
 if __name__ == "__main__":
     print("Ingesting Data")
-    loader = TextLoader("agents/rag-agent/docs/vector-db-blog.txt")
+    loader = TextLoader("agents/rag/docs/blog.txt")
     data = loader.load()
 
     print("splitting data")
