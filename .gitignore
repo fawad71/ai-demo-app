@@ -54,6 +54,7 @@ build/
 .settings/
 
 # Project specific
+chroma_db_blog/
 chroma_db/
 .chroma/
 checkpoints.*
